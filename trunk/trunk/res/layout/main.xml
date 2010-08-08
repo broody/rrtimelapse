@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		>
+		<SurfaceView android:id="@+id/surfacePreview"
+        	android:layout_width="120px"
+        	android:layout_height="160px"
+        	android:layout_weight="1" />
+	</LinearLayout>
+	<Button 
+		android:id="@+id/grabCamera" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content" 
+		android:text="Grab Camera" />
+	<Button 
+		android:id="@+id/releaseCamera" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content" 
+		android:text="Release Camera" />
+	<Button 
+		android:id="@+id/startCamera" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content" 
+		android:text="Start Camera" />
+	<Button 
+		android:id="@+id/stopCamera" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content" 
+		android:text="Stop Camera" />
+	<ScrollView
+		android:id="@+id/view_settings"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		>
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			>
+			<TextView  
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:text="Autofocus" /> 
+				/>
+			<Spinner 
+				android:id="@+id/spinner_autofocus"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:drawSelectorOnTop="true"
+				android:prompt="@string/prompt_autofocus"
+				/>
+			<TextView  
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:text="Resolution" /> 
+				/>
+			<Spinner 
+				android:id="@+id/spinner_resolution"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:drawSelectorOnTop="true"
+				android:prompt="@string/prompt_resolution"
+				/>
+			<TextView  
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:text="Type" /> 
+				/>
+			<Spinner 
+				android:id="@+id/spinner_type"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:drawSelectorOnTop="true"
+				android:prompt="@string/prompt_type"
+				/>
+			<TextView  
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:text="Lapse time" /> 
+				/>
+			<Button 
+				android:id="@+id/getLapse" 
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content" 
+				android:text="Lapse time:" />
+			<TextView
+				android:id="@+id/lapseStart"
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:text="Start Lapse: " /> 
+				/>
+			<Button 
+				android:id="@+id/startLapseTime" 
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content" 
+				android:text="Set Start Time" />
+			<Button 
+				android:id="@+id/startLapseDate" 
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content" 
+				android:text="Set Start Date:" />
+			<TextView
+				android:id="@+id/lapseEnd"
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:text="End Lapse: " /> 
+				/>
+			<Button 
+				android:id="@+id/endLapseTime" 
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content" 
+				android:text="Set End Time" />
+			<Button 
+				android:id="@+id/endLapseDate" 
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content" 
+				android:text="Set End Date" />
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>
