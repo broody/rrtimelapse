@@ -1,0 +1,10 @@
+#summary Change log for rrTimeLapse app.
+
+= Current version =
+
+r5 - 1.0
+
+= Details =
+
+1.0
+  * Initial release
