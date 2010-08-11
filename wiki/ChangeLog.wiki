@@ -1,10 +1,14 @@
 #summary Change log for rrTimeLapse app.
 
-= Current version =
+= Current version on the market =
 
-r5 - 1.0
+r7 - 1.0.1
 
 = Details =
 
-1.0
+r7 - 1.0.1
+  * Added support for QVGA screens
+  * Removed the need to remount SD card for pictures to apear
+
+-r5 1.0
   * Initial release
