@@ -2,6 +2,9 @@
 <resources>
 	<string name="app_name">rrTimeLapse</string>
 	
+	<string name="ok">OK</string>
+	<string name="cancel">Cancel</string>
+	
 	<string name="error_sdCard">No SD card present</string>
 	
     <string name="camService_text">Taking pretty pictures</string>
@@ -10,4 +13,32 @@
     <string name="prompt_autofocus">Autofocus</string>
     <string name="prompt_resolution">Resolution</string>
     <string name="prompt_type">Type</string>
+    
+    <string name="button_grab">Grab Camera</string>
+    <string name="button_release">Release Camera</string>
+    <string name="button_start">Start Camera</string>
+    <string name="button_stop">Stop Camera</string>
+    
+    <string name="button_lapseTime">Lapse time:</string>
+    <string name="button_setStartTime">Set Start Time</string>
+    <string name="button_setStartDate">Set Start Date</string>
+    <string name="button_setEndTime">Set End Time</string>
+    <string name="button_setEndDate">Set End Date</string>
+    
+    <string name="choice_autofocusDisabled">Disabled</string>
+    <string name="choice_autofocusEnabled">Enabled</string>
+    <string name="choice_typeContinuous">Continuous</string>
+    <string name="choice_typeTimed">Timed</string>
+    
+    <string name="string_lapseTime">Lapse time</string>
+    <string name="string_startLapse">Start Lapse:</string>
+    <string name="string_endLapse">End Lapse:</string>
+    <string name="string_endInSeconds">Lapse in seconds:</string>
+    <string name="string_lapseWarning">If lapse time is to short, depending on the capabilities, pictures might be further apart then specified.\n\n10 seconds minimum is recomended!</string>
+	<string name="string_uiLapseTime">Lapse time:</string>
+	<string name="string_uiStartLapse">Start Lapse:</string>
+	<string name="string_uiEndLapse">End Lapse:</string>
+	<string name="string_uiSeconds">seconds</string>
+	
+	<string name="dialogTitleLapse_uiSeconds">Lapse in seconds</string>
 </resources>

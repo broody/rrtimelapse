@@ -18,19 +18,24 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.hardware.Camera;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.SystemClock;
 import android.text.format.Time;
-import android.util.Log;
 import android.view.SurfaceView;
 
 public class camService extends Service{
 	
 	private NotificationManager mNM;
 	
+	private MediaScannerConnection mScanner;
+	
 	private Camera cam;
+	
+	private String name;
 	
 	private static final String STORAGE_PATH = new String("/sdcard/");
 	private static final String DATA_PATH = new String("rrTimeLapse/");
@@ -91,7 +96,9 @@ public class camService extends Service{
     			Time time = new Time();
     			time.setToNow();
     			
-    			this.filoutputStream = new FileOutputStream(STORAGE_PATH + DATA_PATH + ((Integer)time.year).toString() + "-" + String.format("%02d", time.month + 1) + "-" + String.format("%02d", time.monthDay) + "-" + String.format("%02d", time.hour) + "." + String.format("%02d", time.minute) + "." + String.format("%02d", time.second) + ".jpg");
+    			name = STORAGE_PATH + DATA_PATH + ((Integer)time.year).toString() + "-" + String.format("%02d", time.month + 1) + "-" + String.format("%02d", time.monthDay) + "-" + String.format("%02d", time.hour) + "." + String.format("%02d", time.minute) + "." + String.format("%02d", time.second) + ".jpg";
+    			
+    			this.filoutputStream = new FileOutputStream(name);
     		} catch (FileNotFoundException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
@@ -106,6 +113,7 @@ public class camService extends Service{
     		}
     		
     		resetView();
+    		mScanner.connect(); 
     	}
     };
     
@@ -122,6 +130,15 @@ public class camService extends Service{
 		 mNM = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 		 
 		 showNotification_start();
+		 mScanner = new MediaScannerConnection(this, new MediaScannerConnection.MediaScannerConnectionClient() {
+			 public void onMediaScannerConnected() {
+				 mScanner.scanFile(name, null);
+			 }
+			 public void onScanCompleted(String path, Uri uri) {
+				 if (path.equals(name)) { mScanner.disconnect();
+				 }
+			 }
+		 });
 	 }
 	 
 	 @Override
@@ -208,7 +225,6 @@ public class camService extends Service{
 	private Runnable mUpdateTimeTask = new Runnable() {
     	public void run() {
     		
-    		Log.i("test", "start time");
     		final long start = 0;
     		long millis = SystemClock.uptimeMillis() - start;
     		int seconds = (int) (millis / 1000);

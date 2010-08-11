@@ -15,28 +15,7 @@
         	android:layout_height="160px"
         	android:layout_weight="1" />
 	</LinearLayout>
-	<Button 
-		android:id="@+id/grabCamera" 
-		android:layout_width="fill_parent" 
-		android:layout_height="wrap_content" 
-		android:text="Grab Camera" />
-	<Button 
-		android:id="@+id/releaseCamera" 
-		android:layout_width="fill_parent" 
-		android:layout_height="wrap_content" 
-		android:text="Release Camera" />
-	<Button 
-		android:id="@+id/startCamera" 
-		android:layout_width="fill_parent" 
-		android:layout_height="wrap_content" 
-		android:text="Start Camera" />
-	<Button 
-		android:id="@+id/stopCamera" 
-		android:layout_width="fill_parent" 
-		android:layout_height="wrap_content" 
-		android:text="Stop Camera" />
 	<ScrollView
-		android:id="@+id/view_settings"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		>
@@ -46,90 +25,118 @@
 			android:layout_height="wrap_content"
 			android:gravity="center"
 			>
-			<TextView  
+			<Button 
+				android:id="@+id/grabCamera" 
 				android:layout_width="fill_parent" 
-				android:layout_height="wrap_content"
-				android:gravity="center"
-				android:text="Autofocus" /> 
-				/>
-			<Spinner 
-				android:id="@+id/spinner_autofocus"
+				android:layout_height="wrap_content" 
+				android:text="@string/button_grab" />
+			<Button 
+				android:id="@+id/releaseCamera" 
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content" 
+				android:text="@string/button_release" />
+			<Button 
+				android:id="@+id/startCamera" 
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content" 
+				android:text="@string/button_start" />
+			<Button 
+				android:id="@+id/stopCamera" 
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content" 
+				android:text="@string/button_stop" />
+			<LinearLayout
+				android:id="@+id/view_settings"
+				android:orientation="vertical"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
-				android:drawSelectorOnTop="true"
-				android:prompt="@string/prompt_autofocus"
-				/>
-			<TextView  
-				android:layout_width="fill_parent" 
-				android:layout_height="wrap_content"
 				android:gravity="center"
-				android:text="Resolution" /> 
-				/>
-			<Spinner 
-				android:id="@+id/spinner_resolution"
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				android:drawSelectorOnTop="true"
-				android:prompt="@string/prompt_resolution"
-				/>
-			<TextView  
-				android:layout_width="fill_parent" 
-				android:layout_height="wrap_content"
-				android:gravity="center"
-				android:text="Type" /> 
-				/>
-			<Spinner 
-				android:id="@+id/spinner_type"
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				android:drawSelectorOnTop="true"
-				android:prompt="@string/prompt_type"
-				/>
-			<TextView  
-				android:layout_width="fill_parent" 
-				android:layout_height="wrap_content"
-				android:gravity="center"
-				android:text="Lapse time" /> 
-				/>
-			<Button 
-				android:id="@+id/getLapse" 
-				android:layout_width="fill_parent" 
-				android:layout_height="wrap_content" 
-				android:text="Lapse time:" />
-			<TextView
-				android:id="@+id/lapseStart"
-				android:layout_width="fill_parent" 
-				android:layout_height="wrap_content"
-				android:gravity="center"
-				android:text="Start Lapse: " /> 
-				/>
-			<Button 
-				android:id="@+id/startLapseTime" 
-				android:layout_width="fill_parent" 
-				android:layout_height="wrap_content" 
-				android:text="Set Start Time" />
-			<Button 
-				android:id="@+id/startLapseDate" 
-				android:layout_width="fill_parent" 
-				android:layout_height="wrap_content" 
-				android:text="Set Start Date:" />
-			<TextView
-				android:id="@+id/lapseEnd"
-				android:layout_width="fill_parent" 
-				android:layout_height="wrap_content"
-				android:gravity="center"
-				android:text="End Lapse: " /> 
-				/>
-			<Button 
-				android:id="@+id/endLapseTime" 
-				android:layout_width="fill_parent" 
-				android:layout_height="wrap_content" 
-				android:text="Set End Time" />
-			<Button 
-				android:id="@+id/endLapseDate" 
-				android:layout_width="fill_parent" 
-				android:layout_height="wrap_content" 
-				android:text="Set End Date" />
+				>
+				<TextView  
+					android:layout_width="fill_parent" 
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="@string/prompt_autofocus" /> 
+					/>
+				<Spinner 
+					android:id="@+id/spinner_autofocus"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:drawSelectorOnTop="true"
+					android:prompt="@string/prompt_autofocus"
+					/>
+				<TextView  
+					android:layout_width="fill_parent" 
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="@string/prompt_resolution" /> 
+					/>
+				<Spinner 
+					android:id="@+id/spinner_resolution"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:drawSelectorOnTop="true"
+					android:prompt="@string/prompt_resolution"
+					/>
+				<TextView  
+					android:layout_width="fill_parent" 
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="@string/prompt_type" /> 
+					/>
+				<Spinner 
+					android:id="@+id/spinner_type"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:drawSelectorOnTop="true"
+					android:prompt="@string/prompt_type"
+					/>
+				<TextView  
+					android:layout_width="fill_parent" 
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="@string/string_lapseTime" /> 
+					/>
+				<Button 
+					android:id="@+id/getLapse" 
+					android:layout_width="fill_parent" 
+					android:layout_height="wrap_content" 
+					android:text="@string/button_lapseTime" />
+				<TextView
+					android:id="@+id/lapseStart"
+					android:layout_width="fill_parent" 
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="@string/string_startLapse" /> 
+					/>
+				<Button 
+					android:id="@+id/startLapseTime" 
+					android:layout_width="fill_parent" 
+					android:layout_height="wrap_content" 
+					android:text="@string/button_setStartTime" />
+				<Button 
+					android:id="@+id/startLapseDate" 
+					android:layout_width="fill_parent" 
+					android:layout_height="wrap_content" 
+					android:text="@string/button_setStartDate" />
+				<TextView
+					android:id="@+id/lapseEnd"
+					android:layout_width="fill_parent" 
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="@string/string_endLapse" /> 
+					/>
+				<Button 
+					android:id="@+id/endLapseTime" 
+					android:layout_width="fill_parent" 
+					android:layout_height="wrap_content" 
+					android:text="@string/button_setEndTime" />
+				<Button 
+					android:id="@+id/endLapseDate" 
+					android:layout_width="fill_parent" 
+					android:layout_height="wrap_content" 
+					android:text="@string/button_setEndDate" />
+			</LinearLayout>
 		</LinearLayout>
 	</ScrollView>
 </LinearLayout>

@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_marginLeft="20dip"
         android:layout_marginRight="20dip"
-        android:text="Lapse in seconds:"
+        android:text="@string/string_endInSeconds"
         android:gravity="left"
         android:textAppearance="?android:attr/textAppearanceMedium" />
             
@@ -31,6 +31,6 @@
         android:layout_width="wrap_content"
         android:layout_marginLeft="20dip"
         android:layout_marginRight="20dip"
-        android:text="If lapse time is to short, depending on the capabilities, pictures might be further apart then specified.\n\n10 seconds minimum is recomended!"
+        android:text="@string/string_lapseWarning"
         android:gravity="left" />
 </LinearLayout>

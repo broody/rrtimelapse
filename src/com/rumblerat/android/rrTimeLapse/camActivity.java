@@ -29,7 +29,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ScrollView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -42,7 +42,7 @@ public class camActivity extends Activity {
 
 	private camService mBoundLocalService;
 
-	private ScrollView xView;
+	private LinearLayout xView;
 
 	private Button xButton;
 	private ArrayAdapter<?> xAdaptor;
@@ -107,18 +107,18 @@ public class camActivity extends Activity {
 		xButton.setOnClickListener(mStopLocalCamera);
 		xButton.setVisibility(View.GONE);
 
-		xView = (ScrollView)findViewById(R.id.view_settings);
+		xView = (LinearLayout)findViewById(R.id.view_settings);
 		xView.setVisibility(View.VISIBLE);
 
 		xButton = (Button)findViewById(R.id.getLapse);
-		xButton.setText("Lapse time: " + Integer.toString(lpsTime) + " seconds");
+		xButton.setText(getString(R.string.string_uiLapseTime) + " " + Integer.toString(lpsTime) + " " + getString(R.string.string_uiSeconds));
 		xButton.setOnClickListener(mGetLapseTime);
 
 		lpsViewStart = (TextView)findViewById(R.id.lapseStart);
-		lpsViewStart.setText("Start Lapse: " + mYearStart.toString() + "." + String.format("%02d", mMonthStart + 1) + "." + String.format("%02d", mDayStart) + " " + String.format("%02d", mHourStart) + ":" + String.format("%02d", mMinuteStart) + ":00");
+		lpsViewStart.setText(getString(R.string.string_uiStartLapse) + " " + mYearStart.toString() + "." + String.format("%02d", mMonthStart + 1) + "." + String.format("%02d", mDayStart) + " " + String.format("%02d", mHourStart) + ":" + String.format("%02d", mMinuteStart) + ":00");
 
 		lpsViewEnd = (TextView)findViewById(R.id.lapseEnd);
-		lpsViewEnd.setText("End Lapse: " + mYearEnd.toString() + "." + String.format("%02d", mMonthEnd + 1) + "." + String.format("%02d", mDayEnd) + " " + String.format("%02d", mHourEnd) + ":" + String.format("%02d", mMinuteStart) + ":00");
+		lpsViewEnd.setText(getString(R.string.string_uiEndLapse) + " "  + mYearEnd.toString() + "." + String.format("%02d", mMonthEnd + 1) + "." + String.format("%02d", mDayEnd) + " " + String.format("%02d", mHourEnd) + ":" + String.format("%02d", mMinuteStart) + ":00");
 
 		xButton = (Button)findViewById(R.id.startLapseTime);
 		xButton.setOnClickListener(mStartLapseTime);
@@ -171,9 +171,9 @@ public class camActivity extends Activity {
 			LayoutInflater factory = LayoutInflater.from(this);
 			final View textEntryView = factory.inflate(R.layout.lapse, null);
 			return new AlertDialog.Builder(camActivity.this)
-			.setTitle("Lapse in seconds")
+			.setTitle(getString(R.string.dialogTitleLapse_uiSeconds))
 			.setView(textEntryView)
-			.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int whichButton) {
 
 					/* User clicked OK so do some stuff */
@@ -183,10 +183,10 @@ public class camActivity extends Activity {
 					lpsTime = Integer.valueOf(et.getText().toString());
 
 					xButton = (Button)findViewById(R.id.getLapse);
-					xButton.setText("Lapse time: " + Integer.toString(lpsTime) + " seconds!");
+					xButton.setText(getString(R.string.string_uiLapseTime) + " " + Integer.toString(lpsTime) + " " + getString(R.string.string_uiSeconds));
 				}
 			})
-			.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int whichButton) {
 
 					/* User clicked cancel so do some stuff */
@@ -212,7 +212,7 @@ public class camActivity extends Activity {
 		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 			mHourStart = hourOfDay;
 			mMinuteStart = minute;
-			lpsViewStart.setText("Start Lapse: " + mYearStart.toString() + "." + String.format("%02d", mMonthStart + 1) + "." + String.format("%02d", mDayStart) + " " + String.format("%02d", mHourStart) + ":" + String.format("%02d", mMinuteStart) + ":00");
+			lpsViewStart.setText(getString(R.string.string_uiStartLapse) + " " + mYearStart.toString() + "." + String.format("%02d", mMonthStart + 1) + "." + String.format("%02d", mDayStart) + " " + String.format("%02d", mHourStart) + ":" + String.format("%02d", mMinuteStart) + ":00");
 		}
 	};
 
@@ -221,7 +221,7 @@ public class camActivity extends Activity {
 			mYearStart = year;
 			mMonthStart = monthOfYear;
 			mDayStart = dayOfMonth;
-			lpsViewStart.setText("Start Lapse: " + mYearStart.toString() + "." + String.format("%02d", mMonthStart + 1) + "." + String.format("%02d", mDayStart) + " " + String.format("%02d", mHourStart) + ":" + String.format("%02d", mMinuteStart) + ":00");
+			lpsViewStart.setText(getString(R.string.string_uiStartLapse) + " " + mYearStart.toString() + "." + String.format("%02d", mMonthStart + 1) + "." + String.format("%02d", mDayStart) + " " + String.format("%02d", mHourStart) + ":" + String.format("%02d", mMinuteStart) + ":00");
 		}
 	};
 
@@ -229,7 +229,7 @@ public class camActivity extends Activity {
 		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 			mHourEnd = hourOfDay;
 			mMinuteEnd = minute;
-			lpsViewEnd.setText("Start Lapse: " + mYearEnd.toString() + "." + String.format("%02d", mMonthEnd + 1) + "." + String.format("%02d", mDayEnd) + " " + String.format("%02d", mHourEnd) + ":" + String.format("%02d", mMinuteEnd) + ":00");
+			lpsViewEnd.setText(getString(R.string.string_uiEndLapse) + " " + mYearEnd.toString() + "." + String.format("%02d", mMonthEnd + 1) + "." + String.format("%02d", mDayEnd) + " " + String.format("%02d", mHourEnd) + ":" + String.format("%02d", mMinuteEnd) + ":00");
 		}
 	};
 
@@ -238,7 +238,7 @@ public class camActivity extends Activity {
 			mYearEnd = year;
 			mMonthEnd = monthOfYear;
 			mDayEnd = dayOfMonth;
-			lpsViewEnd.setText("Start Lapse: " + mYearEnd.toString() + "." + String.format("%02d", mMonthEnd + 1) + "." + String.format("%02d", mDayEnd) + " " + String.format("%02d", mHourEnd) + ":" + String.format("%02d", mMinuteEnd) + ":00");
+			lpsViewEnd.setText(getString(R.string.string_uiEndLapse) + " " + mYearEnd.toString() + "." + String.format("%02d", mMonthEnd + 1) + "." + String.format("%02d", mDayEnd) + " " + String.format("%02d", mHourEnd) + ":" + String.format("%02d", mMinuteEnd) + ":00");
 		}
 	};
 
@@ -374,7 +374,7 @@ public class camActivity extends Activity {
 					xButton.setVisibility(View.VISIBLE);
 
 					xButton = (Button)findViewById(R.id.getLapse);
-					xButton.setText("Lapse time: " + Integer.toString(lpsTime) + " seconds");
+					xButton.setText(getString(R.string.string_uiLapseTime) + " " + Integer.toString(lpsTime) + " " + getString(R.string.string_uiSeconds));
 
 					xView.setVisibility(View.GONE);
 				}
@@ -389,7 +389,7 @@ public class camActivity extends Activity {
 					xButton.setVisibility(View.GONE);
 
 					xButton = (Button)findViewById(R.id.getLapse);
-					xButton.setText("Lapse time: " + Integer.toString(lpsTime) + " seconds");
+					xButton.setText(getString(R.string.string_uiLapseTime) + " " + Integer.toString(lpsTime) + " " + getString(R.string.string_uiSeconds));
 
 					xView.setVisibility(View.GONE);
 				}
@@ -406,7 +406,7 @@ public class camActivity extends Activity {
 				xButton.setVisibility(View.GONE);
 
 				xButton = (Button)findViewById(R.id.getLapse);
-				xButton.setText("Lapse time: " + Integer.toString(lpsTime) + " seconds");
+				xButton.setText(getString(R.string.string_uiLapseTime) + " " + Integer.toString(lpsTime) + " " + getString(R.string.string_uiSeconds));
 
 				xView.setVisibility(View.VISIBLE);
 			}
