@@ -8,7 +8,7 @@ r7 - 1.0.1
 
 r7 - 1.0.1
   * Added support for QVGA screens
-  * Removed the need to remount SD card for pictures to apear
+  * Removed the need to remount SD card for pictures to appear
 
 -r5 1.0
   * Initial release
