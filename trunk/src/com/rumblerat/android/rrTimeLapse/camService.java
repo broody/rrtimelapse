@@ -26,6 +26,7 @@ import android.os.IBinder;
 import android.os.SystemClock;
 import android.text.format.Time;
 import android.view.SurfaceView;
+import android.widget.Toast;
 
 public class camService extends Service{
 	
@@ -190,20 +191,29 @@ public class camService extends Service{
 		if (!isCamActive) {
 			cam = Camera.open();
 			
-			Camera.Parameters p = cam.getParameters();
-			p.setPictureSize(resWidth, resHeight);
-			cam.setParameters(p);
-
 			isCamActive = true;
 			
+			Camera.Parameters p = cam.getParameters();
+			p.setPictureSize(resWidth, resHeight);
+			
 			try {
-				cam.setPreviewDisplay(sv.getHolder());
-				cam.startPreview();
-			} catch (Exception e) {
-				e.printStackTrace();
+				cam.setParameters(p);
+			} catch (RuntimeException re) {
+				re.printStackTrace();
+				
+				unsetView();
+				DisplayToast(getString(R.string.error_camResolution));
+			}
+			
+			if (isCamActive) {
+				try {
+					cam.setPreviewDisplay(sv.getHolder());
+					cam.startPreview();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		}
-		
 	}
 	
 	private void unsetView() {
@@ -258,6 +268,9 @@ public class camService extends Service{
     	}
     }
     
+    private void DisplayToast(String msg) {
+		Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();        
+	} 
 	// // //
     
     public void giveView(SurfaceView x, Integer autofocus, Integer resolution, Integer type, Integer lapse,
