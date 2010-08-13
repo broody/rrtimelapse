@@ -6,6 +6,7 @@
 	<string name="cancel">Cancel</string>
 	
 	<string name="error_sdCard">No SD card present</string>
+	<string name="error_camResolution">Camera resolution not supported</string>
 	
     <string name="camService_text">Taking pretty pictures</string>
     <string name="camService_label">rrTimeLapse</string>
