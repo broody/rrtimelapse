@@ -417,8 +417,7 @@ public class camActivity extends Activity {
 		}
 	};
 
-	private void DisplayToast(String msg)
-	{
+	private void DisplayToast(String msg) {
 		Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();        
 	}  
 }
