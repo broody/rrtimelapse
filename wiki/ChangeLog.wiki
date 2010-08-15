@@ -2,9 +2,12 @@
 
 = Current version on the market =
 
-r11 - 1.0.2
+r13 - 1.0.3
 
 = Details =
+
+r13 - 1.0.3
+  * Added custom resolution support
 
 r11 - 1.0.2
   * Added notification on unsupported resolutions
