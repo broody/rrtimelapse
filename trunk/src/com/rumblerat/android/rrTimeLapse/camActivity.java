@@ -25,6 +25,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -34,6 +35,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 public class camActivity extends Activity {
 	
@@ -52,12 +54,16 @@ public class camActivity extends Activity {
 	private Spinner spinnerType;
 
 	private Integer lpsTime = 10;
+	private Integer resWidth = 0;
+	private Integer resHeight = 0;
 
 	private static final int DIALOG_GET_LAPSE_TIME = 0;
 	private static final int DIALOG_TIME_START = 1;
 	private static final int DIALOG_DATE_START = 2;
 	private static final int DIALOG_TIME_END = 3;
 	private static final int DIALOG_DATE_END = 4;
+	private static final int DIALOG_RESOLUTION_WIDTH = 5;
+	private static final int DIALOG_RESOLUTION_HEIGHT = 6;
 	
 	private Integer mYearStart;
 	private Integer mMonthStart;
@@ -109,7 +115,17 @@ public class camActivity extends Activity {
 
 		xView = (LinearLayout)findViewById(R.id.view_settings);
 		xView.setVisibility(View.VISIBLE);
-
+		
+		xButton = (Button)findViewById(R.id.getWidth);
+		xButton.setText(getString(R.string.string_resWidth) + " " + Integer.toString(resWidth));
+		xButton.setOnClickListener(mGetWidth);
+		xButton.setVisibility(View.GONE);
+		
+		xButton = (Button)findViewById(R.id.getHeight);
+		xButton.setText(getString(R.string.string_resHeight) + " " + Integer.toString(resHeight));
+		xButton.setOnClickListener(mGetHeight);
+		xButton.setVisibility(View.GONE);
+		
 		xButton = (Button)findViewById(R.id.getLapse);
 		xButton.setText(getString(R.string.string_uiLapseTime) + " " + Integer.toString(lpsTime) + " " + getString(R.string.string_uiSeconds));
 		xButton.setOnClickListener(mGetLapseTime);
@@ -139,6 +155,30 @@ public class camActivity extends Activity {
 		xAdaptor = ArrayAdapter.createFromResource(this, R.array.choice_resolution, android.R.layout.simple_spinner_item);
 		xAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinnerResolution.setAdapter(xAdaptor);
+		
+		spinnerResolution.setOnItemSelectedListener(new OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+				// your code here
+				if (spinnerResolution.getSelectedItemPosition() == 8) {
+				xButton = (Button)findViewById(R.id.getWidth);
+				xButton.setVisibility(View.VISIBLE);
+				xButton = (Button)findViewById(R.id.getHeight);
+				xButton.setVisibility(View.VISIBLE);
+				} else {
+					xButton = (Button)findViewById(R.id.getWidth);
+					xButton.setVisibility(View.GONE);
+					xButton = (Button)findViewById(R.id.getHeight);
+					xButton.setVisibility(View.GONE);
+				}
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parentView) {
+				// your code here
+			}
+		});
+
 
 		spinnerType = (Spinner) findViewById(R.id.spinner_type);
 		xAdaptor = ArrayAdapter.createFromResource(this, R.array.choice_type, android.R.layout.simple_spinner_item);
@@ -204,6 +244,58 @@ public class camActivity extends Activity {
 			return new TimePickerDialog(this, mTimeEndSetListener, mHourEnd, mMinuteEnd, false);
 		case DIALOG_DATE_END:
 			return new DatePickerDialog(this, mDateEndSetListener, mYearEnd, mMonthEnd, mDayEnd);
+		case DIALOG_RESOLUTION_WIDTH:
+			LayoutInflater factory2 = LayoutInflater.from(this);
+			final View textEntryView2 = factory2.inflate(R.layout.width, null);
+			return new AlertDialog.Builder(camActivity.this)
+			.setTitle(getString(R.string.dialogTitleResolution_uiWidth))
+			.setView(textEntryView2)
+			.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int whichButton) {
+
+					/* User clicked OK so do some stuff */
+					AlertDialog ad2 = (AlertDialog) dialog;
+					EditText et2 = (EditText) ad2.findViewById(R.id.edit_width);
+
+					resWidth = Integer.valueOf(et2.getText().toString());
+
+					xButton = (Button)findViewById(R.id.getWidth);
+					xButton.setText(getString(R.string.string_resWidth) + " " + Integer.toString(resWidth));
+				}
+			})
+			.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int whichButton) {
+
+					/* User clicked cancel so do some stuff */
+				}
+			})
+			.create();
+		case DIALOG_RESOLUTION_HEIGHT:
+			LayoutInflater factory3 = LayoutInflater.from(this);
+			final View textEntryView3 = factory3.inflate(R.layout.height, null);
+			return new AlertDialog.Builder(camActivity.this)
+			.setTitle(getString(R.string.dialogTitleResolution_uiHeight))
+			.setView(textEntryView3)
+			.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int whichButton) {
+
+					/* User clicked OK so do some stuff */
+					AlertDialog ad3 = (AlertDialog) dialog;
+					EditText et3 = (EditText) ad3.findViewById(R.id.edit_height);
+
+					resHeight = Integer.valueOf(et3.getText().toString());
+
+					xButton = (Button)findViewById(R.id.getHeight);
+					xButton.setText(getString(R.string.string_resHeight) + " " + Integer.toString(resHeight));
+				}
+			})
+			.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int whichButton) {
+
+					/* User clicked cancel so do some stuff */
+				}
+			})
+			.create();
 		}
 		return null;
 	}
@@ -249,7 +341,7 @@ public class camActivity extends Activity {
 				startService(new Intent(camActivity.this, camService.class));
 
 				if (!mBoundLocalService.isCameraActive()) {
-					mBoundLocalService.giveView(sv, spinnerAutofocus.getSelectedItemPosition(), spinnerResolution.getSelectedItemPosition(), spinnerType.getSelectedItemPosition(), lpsTime,
+					mBoundLocalService.giveView(sv, spinnerAutofocus.getSelectedItemPosition(), spinnerResolution.getSelectedItemPosition(), resWidth, resHeight, spinnerType.getSelectedItemPosition(), lpsTime,
 												mYearStart, mMonthStart, mDayStart, mHourStart, mMinuteStart, mYearEnd, mMonthEnd, mDayEnd, mHourEnd, mMinuteEnd);
 				}
 
@@ -353,6 +445,18 @@ public class camActivity extends Activity {
 	private OnClickListener mEndLapseDate = new OnClickListener() {
 		public void onClick(View v) {
 			showDialog(DIALOG_DATE_END);
+		}
+	};
+	
+	private OnClickListener mGetWidth = new OnClickListener() {
+		public void onClick(View v) {
+			showDialog(DIALOG_RESOLUTION_WIDTH);
+		}
+	};
+	
+	private OnClickListener mGetHeight = new OnClickListener() {
+		public void onClick(View v) {
+			showDialog(DIALOG_RESOLUTION_HEIGHT);
 		}
 	};
 

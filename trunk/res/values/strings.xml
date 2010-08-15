@@ -26,20 +26,31 @@
     <string name="button_setEndTime">Set End Time</string>
     <string name="button_setEndDate">Set End Date</string>
     
+    <string name="button_getWidth">Width:</string>
+    <string name="button_getHeight">Height:</string>
+    
+    <string name="choice_resolutionCustom">Custom</string>
     <string name="choice_autofocusDisabled">Disabled</string>
     <string name="choice_autofocusEnabled">Enabled</string>
     <string name="choice_typeContinuous">Continuous</string>
     <string name="choice_typeTimed">Timed</string>
     
     <string name="string_lapseTime">Lapse time</string>
+    <string name="string_resWidth">Width:</string>
+    <string name="string_resHeight">Height:</string>
     <string name="string_startLapse">Start Lapse:</string>
     <string name="string_endLapse">End Lapse:</string>
     <string name="string_endInSeconds">Lapse in seconds:</string>
     <string name="string_lapseWarning">If lapse time is to short, depending on the capabilities, pictures might be further apart then specified.\n\n10 seconds minimum is recomended!</string>
+    <string name="string_resolutionWarning">Please check camera supported resolutions!</string>
 	<string name="string_uiLapseTime">Lapse time:</string>
 	<string name="string_uiStartLapse">Start Lapse:</string>
 	<string name="string_uiEndLapse">End Lapse:</string>
 	<string name="string_uiSeconds">seconds</string>
+	<string name="string_uiResWidth">Image Width:</string>
+	<string name="string_uiResHeight">Image Height:</string>
 	
 	<string name="dialogTitleLapse_uiSeconds">Lapse in seconds</string>
+	<string name="dialogTitleResolution_uiWidth">Image width</string>
+	<string name="dialogTitleResolution_uiHeight">Image Height</string>
 </resources>

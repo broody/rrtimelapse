@@ -273,7 +273,7 @@ public class camService extends Service{
 	} 
 	// // //
     
-    public void giveView(SurfaceView x, Integer autofocus, Integer resolution, Integer type, Integer lapse,
+    public void giveView(SurfaceView x, Integer autofocus, Integer resolution, Integer width, Integer height, Integer type, Integer lapse,
     						Integer yearStart, Integer monthStart, Integer dayStart, Integer hourStart, Integer minuteStart, Integer yearEnd, Integer monthEnd, Integer dayEnd, Integer hourEnd, Integer minuteEnd) {
 		sv = x;
 		
@@ -316,6 +316,10 @@ public class camService extends Service{
 		case 7:
 			resWidth = 2592;
 			resHeight = 1952;
+			break;
+		case 8:
+			resWidth = width;
+			resHeight = height;
 			break;
 		}
 		

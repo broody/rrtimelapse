@@ -78,6 +78,16 @@
 					android:drawSelectorOnTop="true"
 					android:prompt="@string/prompt_resolution"
 					/>
+					<Button 
+						android:id="@+id/getWidth" 
+						android:layout_width="fill_parent" 
+						android:layout_height="wrap_content" 
+						android:text="@string/button_getWidth" />
+					<Button 
+						android:id="@+id/getHeight" 
+						android:layout_width="fill_parent" 
+						android:layout_height="wrap_content" 
+						android:text="@string/button_getHeight" />
 				<TextView  
 					android:layout_width="fill_parent" 
 					android:layout_height="wrap_content"
