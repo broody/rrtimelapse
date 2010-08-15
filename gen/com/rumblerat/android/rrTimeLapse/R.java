@@ -19,31 +19,38 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
+        public static final int edit_height=0x7f060000;
         public static final int edit_lapse=0x7f060001;
-        public static final int endLapseDate=0x7f060011;
-        public static final int endLapseTime=0x7f060010;
-        public static final int getLapse=0x7f06000b;
+        public static final int edit_width=0x7f060014;
+        public static final int endLapseDate=0x7f060013;
+        public static final int endLapseTime=0x7f060012;
+        public static final int getHeight=0x7f06000b;
+        public static final int getLapse=0x7f06000d;
+        public static final int getWidth=0x7f06000a;
         public static final int grabCamera=0x7f060003;
-        public static final int lapseEnd=0x7f06000f;
-        public static final int lapseStart=0x7f06000c;
+        public static final int lapseEnd=0x7f060011;
+        public static final int lapseStart=0x7f06000e;
         public static final int releaseCamera=0x7f060004;
         public static final int spinner_autofocus=0x7f060008;
         public static final int spinner_resolution=0x7f060009;
-        public static final int spinner_type=0x7f06000a;
+        public static final int spinner_type=0x7f06000c;
         public static final int startCamera=0x7f060005;
-        public static final int startLapseDate=0x7f06000e;
-        public static final int startLapseTime=0x7f06000d;
+        public static final int startLapseDate=0x7f060010;
+        public static final int startLapseTime=0x7f06000f;
         public static final int stopCamera=0x7f060006;
         public static final int surfacePreview=0x7f060002;
-        public static final int username_view=0x7f060000;
         public static final int view_settings=0x7f060007;
     }
     public static final class layout {
-        public static final int lapse=0x7f030000;
-        public static final int main=0x7f030001;
+        public static final int height=0x7f030000;
+        public static final int lapse=0x7f030001;
+        public static final int main=0x7f030002;
+        public static final int width=0x7f030003;
     }
     public static final class string {
         public static final int app_name=0x7f050000;
+        public static final int button_getHeight=0x7f050014;
+        public static final int button_getWidth=0x7f050013;
         public static final int button_grab=0x7f05000a;
         public static final int button_lapseTime=0x7f05000e;
         public static final int button_release=0x7f05000b;
@@ -56,25 +63,33 @@ public final class R {
         public static final int camService_label=0x7f050006;
         public static final int camService_text=0x7f050005;
         public static final int cancel=0x7f050002;
-        public static final int choice_autofocusDisabled=0x7f050013;
-        public static final int choice_autofocusEnabled=0x7f050014;
-        public static final int choice_typeContinuous=0x7f050015;
-        public static final int choice_typeTimed=0x7f050016;
-        public static final int dialogTitleLapse_uiSeconds=0x7f050020;
+        public static final int choice_autofocusDisabled=0x7f050016;
+        public static final int choice_autofocusEnabled=0x7f050017;
+        public static final int choice_resolutionCustom=0x7f050015;
+        public static final int choice_typeContinuous=0x7f050018;
+        public static final int choice_typeTimed=0x7f050019;
+        public static final int dialogTitleLapse_uiSeconds=0x7f050028;
+        public static final int dialogTitleResolution_uiHeight=0x7f05002a;
+        public static final int dialogTitleResolution_uiWidth=0x7f050029;
         public static final int error_camResolution=0x7f050004;
         public static final int error_sdCard=0x7f050003;
         public static final int ok=0x7f050001;
         public static final int prompt_autofocus=0x7f050007;
         public static final int prompt_resolution=0x7f050008;
         public static final int prompt_type=0x7f050009;
-        public static final int string_endInSeconds=0x7f05001a;
-        public static final int string_endLapse=0x7f050019;
-        public static final int string_lapseTime=0x7f050017;
-        public static final int string_lapseWarning=0x7f05001b;
-        public static final int string_startLapse=0x7f050018;
-        public static final int string_uiEndLapse=0x7f05001e;
-        public static final int string_uiLapseTime=0x7f05001c;
-        public static final int string_uiSeconds=0x7f05001f;
-        public static final int string_uiStartLapse=0x7f05001d;
+        public static final int string_endInSeconds=0x7f05001f;
+        public static final int string_endLapse=0x7f05001e;
+        public static final int string_lapseTime=0x7f05001a;
+        public static final int string_lapseWarning=0x7f050020;
+        public static final int string_resHeight=0x7f05001c;
+        public static final int string_resWidth=0x7f05001b;
+        public static final int string_resolutionWarning=0x7f050021;
+        public static final int string_startLapse=0x7f05001d;
+        public static final int string_uiEndLapse=0x7f050024;
+        public static final int string_uiLapseTime=0x7f050022;
+        public static final int string_uiResHeight=0x7f050027;
+        public static final int string_uiResWidth=0x7f050026;
+        public static final int string_uiSeconds=0x7f050025;
+        public static final int string_uiStartLapse=0x7f050023;
     }
 }

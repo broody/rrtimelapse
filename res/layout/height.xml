@@ -9,12 +9,12 @@
         android:layout_width="wrap_content"
         android:layout_marginLeft="20dip"
         android:layout_marginRight="20dip"
-        android:text="@string/string_endInSeconds"
+        android:text="@string/string_uiResHeight"
         android:gravity="left"
         android:textAppearance="?android:attr/textAppearanceMedium" />
             
     <EditText
-        android:id="@+id/edit_lapse"
+        android:id="@+id/edit_height"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         android:layout_marginLeft="20dip"
@@ -30,6 +30,6 @@
         android:layout_width="wrap_content"
         android:layout_marginLeft="20dip"
         android:layout_marginRight="20dip"
-        android:text="@string/string_lapseWarning"
+        android:text="@string/string_resolutionWarning"
         android:gravity="left" />
 </LinearLayout>
