@@ -2,9 +2,12 @@
 
 = Current version on the market =
 
-r13 - 1.0.3
+r15 - 1.0.4
 
 = Details =
+
+r15 - 1.0.4
+  * Added support for saving resolution and auto focus
 
 r13 - 1.0.3
   * Added custom resolution support
